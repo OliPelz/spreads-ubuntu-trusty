@@ -1,9 +1,14 @@
-Installing spreads for ubuntu 14.04 from scratch
+#Installing spreads for ubuntu 14.04 from scratch
 
-sources:
+this documentation shows howto install spreads for ubuntu 14.04. It's heavily based on the following resources:
+
+##sources:
 http://spreads.readthedocs.org/en/latest/
+
 https://github.com/LabExperimental-SIUA/ilt/wiki/Spreads-Installation---Configuration-Guide-%28Debian-Jessie-Sid%29
+
 http://www.diybookscanner.org/forum/viewtopic.php?f=35&t=3033
+
 
 starting from a clean 14.04 system
 
