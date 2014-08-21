@@ -154,7 +154,13 @@ now its time to configure the cameras
 Before rerunning the spreads config program again first make sure if you can use the 
 chdkptp program.
 
-I use the Canon A2200, plug out the micro USB cable, enable CHDK in your camera 
+First before using chdkptp in Ubuntu 14.04 you have to kill gphoto in order to gain access to the chdk-enabled cameras otherwise you will not be able to use them
+```bash
+ps aux | grep gphoto
+kill -9 <PID of gphoto2 process>
+```
+
+I use the Canon A2200, enable CHDK in your camera 
 (e.g. chdk.wikia.com/wiki/CHDK_1.2.0_User_Manual - section Using CHKD), plug in the micro USB after 
 enabling (I use firmware update method) than plug in the other USB end into your computer, than run the
 chdkptp program to test if it is installed correctly.
