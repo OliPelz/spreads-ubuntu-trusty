@@ -1,10 +1,8 @@
 #Installing spreads for ubuntu 14.04 from scratch
+the exact spreads git revision i am using here in the tutorial is:
+https://github.com/DIYBookScanner/spreads/commit/7c0fe30311c36735fc12efcb006d88$
 
 this documentation shows howto install spreads for ubuntu 14.04. It's heavily based on the following resources:
-
-the exact spreads git revision i am using here is
-
-https://github.com/DIYBookScanner/spreads/commit/7c0fe30311c36735fc12efcb006d885f4e6138e4
 
 ##sources:
 http://spreads.readthedocs.org/en/latest/
@@ -20,13 +18,13 @@ starting from a clean 14.04 system
 sudo apt-get update
 sudo apt-get upgrade	
 ```
-
+afterwards I did a restart (I always do so when kernel is upgraded)
 
 now install all dependcies
 
 ```bash
 sudo apt-get install python2.7 python2.7-dev python-virtualenv \
-python2.7-tk idle python2.7-pmw python2.7-imaging \
+python-tk idle python-pmw python-imaging \
 python-pip libpython2.7-dev libusb-dev \
 libjpeg-dev libtiff5-dev libqt4-core ruby ruby-dev ruby-rmagick \
 libmagickwand-dev \
@@ -80,6 +78,16 @@ reload the system-wide libraries paths
 ```bash
 sudo ldconfig
 ```
+now install libyaml
+
+```bash
+wget http://pyyaml.org/download/libyaml/yaml-0.1.5.tar.gz
+tar xvf yaml-0.1.5.tar.gz
+cd yaml-0.1.5
+./configure
+make 
+sudo make install
+```
 
 finally install spreads (ignore all warnings) in an virtualenv
 
@@ -94,7 +102,14 @@ sudo pip install git+git://github.com/DIYBookScanner/spreads.git
 
 install dependancies for spreads (ignore warnings)
 ```bash
-sudo apt-get install python-psutil libffi-dev  python-usb
+sudo apt-get install python-psutil libffi-dev  python-usb libturbojpeg
+```
+
+fix problems with the libturbojpeg dyn lib
+
+```bash
+sudo ln -s /usr/lib/x86_64-linux-gnu/libturbojpeg.so.0.0.0 /usr/lib/x86_64-linux-gnu/libturbojpeg.so
+
 ```
 
 ```bash
@@ -112,7 +127,6 @@ enable spreads GUI packages
 
 ```bash
 sudo apt-get install python-pyside
-sudo ln -s /usr/lib/python2.7/dist-packages/PySide /usr/local/lib/python2.7/site-packages/PySide
 ```
 
 add current user to staff group
@@ -138,6 +152,17 @@ open a new shell or type
 source ~/.bashrc
 ```
 
+we need some more for the web plugin
+```bash
+sudo pip install Flask
+sudo pip install tornado
+sudo pip install requests
+sudo pip install waitress
+sudo pip install zipstream
+sudo pip install Wand
+sudo pip install Flask-Compress
+```
+
 now run the spreads configuration program
 
 ```sh
@@ -146,7 +171,7 @@ spread configure
 in the program set
 
 * step 1 select : chdkcamera
-* step 2 select : scantailor, tesseract, gui, autorotate
+* step 2 select : scantailor, tesseract, gui, autorotate, web
 * step 3 select : select order - autorotate,scantailor,tesseract 
 * step 4 and 5 select : no for both camera questions (target_page and focus)
 
