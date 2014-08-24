@@ -1,6 +1,6 @@
 #Installing spreads for ubuntu 14.04 from scratch
 the exact spreads git revision i am using here in the tutorial is:
-https://github.com/DIYBookScanner/spreads/commit/7c0fe30311c36735fc12efcb006d88$
+https://github.com/DIYBookScanner/spreads/commit/3a2b9e075c3de0fa9dc81921d598ac559fdc87b3
 
 this documentation shows howto install spreads for ubuntu 14.04. It's heavily based on the following resources:
 
