@@ -25,8 +25,11 @@ sudo apt-get upgrade
 now install all dependcies
 
 ```bash
-sudo apt-get install python2.7 python2.7-dev python-virtualenv python-pip libusb-dev \
-libjpeg-dev libtiff5-dev libqt4-core ruby ruby-dev ruby-rmagick libmagickwand-dev \
+sudo apt-get install python2.7 python2.7-dev python-virtualenv \
+python2.7-tk idle python2.7-pmw python2.7-imaging \
+python-pip libpython2.7-dev libusb-dev \
+libjpeg-dev libtiff5-dev libqt4-core ruby ruby-dev ruby-rmagick \
+libmagickwand-dev \
  ruby-hpricot scantailor lua5.2 git 
 ```
 
