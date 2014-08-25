@@ -119,10 +119,11 @@ update for python usb
 pip install --upgrade --pre pyusb
 ```
 
-enable spreads GUI packages
+enable spreads GUI packages by installing PySide and fixing symbolic link problem
 
 ```bash
 sudo apt-get install python-pyside
+sudo ln -s /usr/lib/python2.7/dist-packages/PySide ~/.spreads/lib/python2.7/site-packages/PySide
 ```
 
 add current user to staff group
