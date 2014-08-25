@@ -107,7 +107,7 @@ fix problems with the libturbojpeg dyn lib
 sudo ln -s /usr/lib/x86_64-linux-gnu/libturbojpeg.so.0.0.0 /usr/lib/x86_64-linux-gnu/libturbojpeg.so
 
 ```
-
+install further python modules for spread
 ```bash
 pip install pycparser 
 pip install cffi 
@@ -126,10 +126,10 @@ sudo apt-get install python-pyside
 sudo ln -s /usr/lib/python2.7/dist-packages/PySide ~/.spreads/lib/python2.7/site-packages/PySide
 ```
 
-add current user to staff group
+add current user to staff group  (the word ´username´ must be replaced by the current username)
 
 ```bash
-sudo adduser username staff (username must be replaced by the current username)
+sudo adduser username staff
 ```
 
 now add the lua env variable to the global path in order that the chdkptp command will work
@@ -149,7 +149,7 @@ open a new shell or type
 source ~/.bashrc
 ```
 
-we need some more for the spread web plugin
+we need some more python modules for the spread web plugin
 ```bash
 pip install Flask
 pip install tornado
@@ -160,11 +160,11 @@ pip install Wand
 pip install Flask-Compress
 ```
 
-now install spreads checking out the github repos than compiling the web client first than ´pip installing´ the rest
+now install spreads by checking out the github repos than compiling the web client first than ´pip installing´ the rest.
 we have to do this because of a bug in the current web client (as of revision [3a2b9e075c3de0fa9dc81921d598ac559fdc87b3](https://github.com/DIYBookScanner/spreads/commit/3a2b9e075c3de0fa9dc81921d598ac559fdc87b3), see issue [126](https://github.com/DIYBookScanner/spreads/issues/126))
-first we need to install the node.js program, than we change the makefile for the client because the tests do not work at the moment
-than we compile the client using the modified makefile
-than we install spreads with the changed client
+first we need to install the node.js program, than we change the makefile for the client because the tests do not work at the moment.
+We than compile the client using the modified makefile.
+Than we install spreads with the changed client,
 
 install node.js
 ```bash
@@ -172,7 +172,7 @@ curl -sL https://deb.nodesource.com/setup | sudo bash -
 sudo apt-get install nodejs
 ```
 
-now change makefile, compile the client and install spreads with the changed client 
+now change the makefile, compile the client and install spreads with the changed client 
 ```bash
 cd /tmp
 git clone https://github.com/DIYBookScanner/spreads.git
@@ -204,7 +204,7 @@ now its time to configure the cameras
 Before rerunning the spreads config program again first make sure if you can use the 
 chdkptp program.
 
-First before using chdkptp in Ubuntu 14.04 you have to kill gphoto in order to gain access to the chdk-enabled cameras otherwise you will not be able to use them
+First before using chdkptp in Ubuntu 14.04 you have to kill gphoto in order to gain access to the chdk-enabled cameras otherwise you will not be able to use them (gphoto2 will block access to the cameras for all other processes)
 ```bash
 ps aux | grep gphoto
 kill -9 <PID of gphoto2 process>
