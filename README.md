@@ -160,7 +160,7 @@ pip install Wand
 pip install Flask-Compress
 ```
 
-now install spreads checking out the github repos than compiling the web client first than pip installing the rest
+now install spreads checking out the github repos than compiling the web client first than ´pip installing´ the rest
 we have to do this because of a bug in the current web client (as of revision [3a2b9e075c3de0fa9dc81921d598ac559fdc87b3](https://github.com/DIYBookScanner/spreads/commit/3a2b9e075c3de0fa9dc81921d598ac559fdc87b3), see issue [126](https://github.com/DIYBookScanner/spreads/issues/126))
 first we need to install the node.js program, than we change the makefile for the client because the tests do not work at the moment
 than we compile the client using the modified makefile
