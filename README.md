@@ -89,14 +89,14 @@ make
 sudo make install
 ```
 
-finally install spreads in an virtualenv, start by installing spread dependencies
+finally install spreads in an virtualenv, create a new one
 
 ```bash
 virtualenv ~/.spreads
 source ~/.spreads/bin/activate
 ```
 
-install dependancies for spreads (ignore warnings)
+install further dependancies for spreads (ignore warnings)
 ```bash
 sudo apt-get install python-psutil libffi-dev  python-usb libturbojpeg
 ```
