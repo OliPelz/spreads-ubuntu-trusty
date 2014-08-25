@@ -1,8 +1,8 @@
 #Installing spreads for ubuntu 14.04 from scratch
 the exact spreads git revision i am using here in the tutorial is:
-https://github.com/DIYBookScanner/spreads/commit/3a2b9e075c3de0fa9dc81921d598ac559fdc87b3
+[3a2b9e075c3de0fa9dc81921d598ac559fdc87b3](https://github.com/DIYBookScanner/spreads/commit/3a2b9e075c3de0fa9dc81921d598ac559fdc87b3)
 
-this documentation shows howto install spreads for ubuntu 14.04. It's heavily based on the following resources:
+this documentation shows howto install [spreads](https://github.com/DIYBookScanner/spreads/) for ubuntu 14.04. It's heavily based on the following resources:
 
 ##sources:
 http://spreads.readthedocs.org/en/latest/
@@ -89,15 +89,11 @@ make
 sudo make install
 ```
 
-finally install spreads (ignore all warnings) in an virtualenv
+finally install spreads in an virtualenv, start by installing spread dependencies
 
 ```bash
 virtualenv ~/.spreads
 source ~/.spreads/bin/activate
-```
-
-```bash
-sudo pip install git+git://github.com/DIYBookScanner/spreads.git
 ```
 
 install dependancies for spreads (ignore warnings)
@@ -113,14 +109,14 @@ sudo ln -s /usr/lib/x86_64-linux-gnu/libturbojpeg.so.0.0.0 /usr/lib/x86_64-linux
 ```
 
 ```bash
-sudo pip install pycparser
-sudo pip install cffi
-sudo pip install jpegtran-cffi
+pip install pycparser 
+pip install cffi 
+pip install jpegtran-cffi
 
 ```
 update for python usb
 ```bash
-sudo pip install --upgrade --pre pyusb
+pip install --upgrade --pre pyusb
 ```
 
 enable spreads GUI packages
@@ -138,7 +134,7 @@ sudo adduser username staff (username must be replaced by the current username)
 now add the lua env variable to the global path in order that the chdkptp command will work
 open the file 
 ```bash
-sudo vi ~/.bashrc 
+vi ~/.bashrc 
 ```
 add
 ```bash
@@ -152,16 +148,41 @@ open a new shell or type
 source ~/.bashrc
 ```
 
-we need some more for the web plugin
+we need some more for the spread web plugin
 ```bash
-sudo pip install Flask
-sudo pip install tornado
-sudo pip install requests
-sudo pip install waitress
-sudo pip install zipstream
-sudo pip install Wand
-sudo pip install Flask-Compress
+pip install Flask
+pip install tornado
+pip install requests
+pip install waitress
+pip install zipstream
+pip install Wand
+pip install Flask-Compress
 ```
+
+now install spreads checking out the github repos than compiling the web client first than pip installing the rest
+we have to do this because of a bug in the current web client (as of revision [3a2b9e075c3de0fa9dc81921d598ac559fdc87b3](https://github.com/DIYBookScanner/spreads/commit/3a2b9e075c3de0fa9dc81921d598ac559fdc87b3), see issue [126](https://github.com/DIYBookScanner/spreads/issues/126))
+first we need to install the node.js program, than we change the makefile for the client because the tests do not work at the moment
+than we compile the client using the modified makefile
+than we install spreads with the changed client
+
+install node.js
+```bash
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+sudo apt-get install nodejs
+```
+
+now change makefile, compile the client and install spreads with the changed client 
+```bash
+cd /tmp
+git clone https://github.com/DIYBookScanner/spreads.git
+sed -Ei 's/(all: )test (development production)/\1\2/g' spreads/spreadsplug/web/client/Makefile
+cd  spreads/spreadsplug/web/client
+make clean
+make all
+cd /tmp/spreads
+pip install .
+```
+
 
 now run the spreads configuration program
 
