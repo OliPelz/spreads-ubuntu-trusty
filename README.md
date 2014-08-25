@@ -5,11 +5,11 @@ the exact spreads git revision i am using here in the tutorial is:
 this documentation shows howto install [spreads](https://github.com/DIYBookScanner/spreads/) for ubuntu 14.04. It's heavily based on the following resources:
 
 ##sources:
-http://spreads.readthedocs.org/en/latest/
+[readthedocs](http://spreads.readthedocs.org/en/latest/)
 
-https://github.com/LabExperimental-SIUA/ilt/wiki/Spreads-Installation---Configuration-Guide-%28Debian-Jessie-Sid%29
+[SIUA installation guide](https://github.com/LabExperimental-SIUA/ilt/wiki/Spreads-Installation---Configuration-Guide-%28Debian-Jessie-Sid%29)
 
-http://www.diybookscanner.org/forum/viewtopic.php?f=35&t=3033
+[important diybookscanner forum entry](http://www.diybookscanner.org/forum/viewtopic.php?f=35&t=3033)
 
 
 starting from a clean 14.04 system
@@ -211,7 +211,7 @@ kill -9 <PID of gphoto2 process>
 ```
 
 I use the Canon A2200, enable CHDK in your camera 
-(e.g. chdk.wikia.com/wiki/CHDK_1.2.0_User_Manual - section Using CHKD), plug in the micro USB after 
+(click [here](http://chdk.wikia.com/wiki/CHDK_1.2.0_User_Manual) - section Using CHKD), plug in the micro USB after 
 enabling (I use firmware update method) than plug in the other USB end into your computer, than run the
 chdkptp program to test if it is installed correctly.
 
