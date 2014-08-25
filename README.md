@@ -46,7 +46,7 @@ sudo apt-get -f install
 sudo dpkg -i djvubind_1.2.1.deb
 ```
 
-Next install latest chdkptp. Go to website, for me it was version v650 (chdkptp-r650-Linux-x86_64.zip), from https://www.assembla.com/spaces/chdkptp/documents
+Next install latest chdkptp. Go to website, for me it was version v650 (chdkptp-r650-Linux-x86_64.zip), from [www.assembla](https://www.assembla.com/spaces/chdkptp/documents)
 unzip to /usr/local/lib/chdkptp
 
 ```bash
